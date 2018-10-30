@@ -1,3 +1,215 @@
-happy children's day
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning
+$ git init
+Initialized empty Git repository in E:/respository/gitLearning/.git/
 
-this is all for today, good night
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        learnText.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git add -A
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   learnText.txt
+
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git commit -m "dfdfdfd"
+[master (root-commit) 7d1471e] dfdfdfd
+ 1 file changed, 1 insertion(+)
+ create mode 100644 learnText.txt
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git log
+commit 7d1471e046d72a3c73b549faea9eda611ab4cf91
+Author: Rancho-PC\Rancho <1522730973@qq.com>
+Date:   Tue Oct 30 23:33:30 2018 +0800
+
+    dfdfdfd
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   learnText.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git diff
+diff --git a/learnText.txt b/learnText.txt
+index 3767d87..09452f5 100644
+--- a/learnText.txt
++++ b/learnText.txt
+@@ -1 +1 @@
+-happy children day
+\ No newline at end of file
++happy children's day
+\ No newline at end of file
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git log
+commit 7d1471e046d72a3c73b549faea9eda611ab4cf91
+Author: Rancho-PC\Rancho <1522730973@qq.com>
+Date:   Tue Oct 30 23:33:30 2018 +0800
+
+    dfdfdfd
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ ssh-keygen -t rsa -C "1522730973@qq.com"
+bash: $'\302\226ssh-keygen': command not found
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git config --global user.name "JijiaoGu"
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git config --global user.email "15227.0973@qq.com"
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ ssh-keygen -t rsa -C "1522730973@qq.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Rancho/.ssh/id_rsa):
+Created directory '/c/Users/Rancho/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Rancho/.ssh/id_rsa.
+Your public key has been saved in /c/Users/Rancho/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:omVKJixbBw5xiNTuIcRmLaUfBB+MaE72PgKTxy3tFDs 1522730973@qq.com
+The key's randomart image is:
++---[RSA 2048]----+
+|*+O+             |
+|+&++o            |
+|X+== o           |
+|+*==E            |
+|ooO==.+ S        |
+| = O.= .         |
+|. . +            |
+|                 |
+|                 |
++----[SHA256]-----+
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ ssh-keygen -t rsa -C "1522730973@qq.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/Rancho/.ssh/id_rsa):
+/c/Users/Rancho/.ssh/id_rsa already exists.
+Overwrite (y/n)? y
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/Rancho/.ssh/id_rsa.
+Your public key has been saved in /c/Users/Rancho/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:7koOIyCFSrFY/MGis+reZBA+0kJANG5SsR+ClOwvmg0 1522730973@qq.com
+The key's randomart image is:
++---[RSA 2048]----+
+|=B=o             |
+|=B*.o            |
+|*O+o..           |
+|X+.o..           |
+|**o .   S        |
+|E+o.   .         |
+|o+ooo . .        |
+|+ =. = .         |
+|oo .  o..        |
++----[SHA256]-----+
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ clip < ~/.ssh/id_rsa.pub^C
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$clip < ~/.ssh/id_rsa.pub^C
+bash: /c/Users/Rancho/.ssh/id_rsa.pub^C: No such file or directory
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ clip < ~/.ssh/id_rsa.pub
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ ssh -T git@github.com
+The authenticity of host 'github.com (192.30.253.113)' can't be established.
+RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.253.113' (RSA) to the list of known hosts.
+Hi JijiaoGu! You've successfully authenticated, but GitHub does not provide shell access.
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git remote add origin git@github.com:JijiaoGu/gitLearning.git
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git add -A
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git log
+commit 7d1471e046d72a3c73b549faea9eda611ab4cf91
+Author: Rancho-PC\Rancho <1522730973@qq.com>
+Date:   Tue Oct 30 23:33:30 2018 +0800
+
+    dfdfdfd
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git push -u origin master
+Warning: Permanently added the RSA host key for IP address '192.30.253.112' to the list of known hosts.
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 235 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/JijiaoGu/gitLearning/pull/new/master
+remote:
+To github.com:JijiaoGu/gitLearning.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git add -A
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git commit -m "all"
+[master 57cc4e9] all
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git log
+commit 57cc4e9c13c5d5784db3152f84b495071943628b
+Author: JijiaoGu <1522730973@qq.com>
+Date:   Wed Oct 31 00:18:08 2018 +0800
+
+    all
+
+commit 7d1471e046d72a3c73b549faea9eda611ab4cf91
+Author: Rancho-PC\Rancho <1522730973@qq.com>
+Date:   Tue Oct 30 23:33:30 2018 +0800
+
+    dfdfdfd
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git pull
+Already up-to-date.
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+$ git pull origin master
+From github.com:JijiaoGu/gitLearning
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
