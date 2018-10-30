@@ -1,8 +1,10 @@
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning
+########1.新的仓库-》初始化,在本地文件夹下
 $ git init
 Initialized empty Git repository in E:/respository/gitLearning/.git/
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+########查看有什么变化
 $ git status
 On branch master
 
@@ -16,6 +18,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+########未追踪的文件，添加进去
 $ git add -A
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
@@ -31,6 +34,7 @@ Changes to be committed:
 
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+########将文件提交到repository里。提交信息用英文的双引号括起来。
 $ git commit -m "dfdfdfd"
 [master (root-commit) 7d1471e] dfdfdfd
  1 file changed, 1 insertion(+)
@@ -45,17 +49,7 @@ Date:   Tue Oct 30 23:33:30 2018 +0800
     dfdfdfd
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$ git status
-On branch master
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git checkout -- <file>..." to discard changes in working directory)
-
-        modified:   learnText.txt
-
-no changes added to commit (use "git add" and/or "git commit -a")
-
-Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+#######看文件做了哪些变化
 $ git diff
 diff --git a/learnText.txt b/learnText.txt
 index 3767d87..09452f5 100644
@@ -67,48 +61,16 @@ index 3767d87..09452f5 100644
 +happy children's day
 \ No newline at end of file
 
-Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$ git log
-commit 7d1471e046d72a3c73b549faea9eda611ab4cf91
-Author: Rancho-PC\Rancho <1522730973@qq.com>
-Date:   Tue Oct 30 23:33:30 2018 +0800
-
-    dfdfdfd
-
-Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$ ssh-keygen -t rsa -C "1522730973@qq.com"
-bash: $'\302\226ssh-keygen': command not found
-
+###########################本地Git和Github的连接
+##########本地配置用户名和邮箱
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
 $ git config --global user.name "JijiaoGu"
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$ git config --global user.email "15227.0973@qq.com"
+$ git config --global user.email "1522730973@qq.com"
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$ ssh-keygen -t rsa -C "1522730973@qq.com"
-Generating public/private rsa key pair.
-Enter file in which to save the key (/c/Users/Rancho/.ssh/id_rsa):
-Created directory '/c/Users/Rancho/.ssh'.
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in /c/Users/Rancho/.ssh/id_rsa.
-Your public key has been saved in /c/Users/Rancho/.ssh/id_rsa.pub.
-The key fingerprint is:
-SHA256:omVKJixbBw5xiNTuIcRmLaUfBB+MaE72PgKTxy3tFDs 1522730973@qq.com
-The key's randomart image is:
-+---[RSA 2048]----+
-|*+O+             |
-|+&++o            |
-|X+== o           |
-|+*==E            |
-|ooO==.+ S        |
-| = O.= .         |
-|. . +            |
-|                 |
-|                 |
-+----[SHA256]-----+
-
+##########生成ssh key，输入密码的时候直接回车
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
 $ ssh-keygen -t rsa -C "1522730973@qq.com"
 Generating public/private rsa key pair.
@@ -135,16 +97,13 @@ The key's randomart image is:
 +----[SHA256]-----+
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$ clip < ~/.ssh/id_rsa.pub^C
-
-Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$clip < ~/.ssh/id_rsa.pub^C
-bash: /c/Users/Rancho/.ssh/id_rsa.pub^C: No such file or directory
-
+#############将生成的ssh key复制到剪贴板，执行 clip < ~/.ssh/id_rsa.pub （或者到上图提示的路径里去打开文件并复制）：
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
 $ clip < ~/.ssh/id_rsa.pub
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+##########在github的setting的SSH and GPG keys创建sh key，粘贴进去ssh key
+##########测试是否成功
 $ ssh -T git@github.com
 The authenticity of host 'github.com (192.30.253.113)' can't be established.
 RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
@@ -153,6 +112,9 @@ Warning: Permanently added 'github.com,192.30.253.113' (RSA) to the list of know
 Hi JijiaoGu! You've successfully authenticated, but GitHub does not provide shell access.
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+##############将远程仓库和本地仓库关联起来
+##############如果你在创建 repository 的时候，加入了 README.md 或者 LICENSE ，那么 github 会拒绝你的 push 。你需要先执行 git pull origin master
+##############执行 git push -u origin master 将本地仓库上传至Github的仓库并进行关联
 $ git remote add origin git@github.com:JijiaoGu/gitLearning.git
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
@@ -167,6 +129,7 @@ Date:   Tue Oct 30 23:33:30 2018 +0800
     dfdfdfd
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+############本地推向远程
 $ git push -u origin master
 Warning: Permanently added the RSA host key for IP address '192.30.253.112' to the list of known hosts.
 Counting objects: 3, done.
@@ -181,9 +144,11 @@ To github.com:JijiaoGu/gitLearning.git
 Branch master set up to track remote branch master from origin.
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+##########首先add
 $ git add -A
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+##########然后commit，英文双引号为注释
 $ git commit -m "all"
 [master 57cc4e9] all
  1 file changed, 3 insertions(+), 1 deletion(-)
@@ -203,13 +168,8 @@ Date:   Tue Oct 30 23:33:30 2018 +0800
     dfdfdfd
 
 Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
-$ git pull
-Already up-to-date.
-
-Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
+#########远程拉倒本地
 $ git pull origin master
 From github.com:JijiaoGu/gitLearning
  * branch            master     -> FETCH_HEAD
 Already up-to-date.
-
-Rancho@Rancho-PC MINGW64 /e/respository/gitLearning (master)
